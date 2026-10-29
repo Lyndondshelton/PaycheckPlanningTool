@@ -1,0 +1,8 @@
+{
+  "migrations-dir": "lib/db/migrations",
+  "migrations-table": "pgmigrations",
+  "migrations-schema": "public",
+  "schema": "public",
+  "migration-file-language": "sql",
+  "migration-filename-format": "index"
+}

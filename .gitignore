@@ -1,0 +1,13 @@
+# IDE Files
+/.idea
+
+#Agents
+AGENTS.md
+app-info.md
+
+#env
+.env
+
+# Generated dependencies and build output are not application source.
+/node_modules/
+/.next/

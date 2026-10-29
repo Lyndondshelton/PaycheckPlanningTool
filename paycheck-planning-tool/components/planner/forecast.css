@@ -1,0 +1,43 @@
+/* Shared forecast styles: imported once by the root layout after the base styles. */
+:root { --income: #226447; --income-bg: #edf6ef; --bill: #315d9b; --bill-bg: #eff4fc; --purchase: #8053a2; --purchase-bg: #f6f0fa; --overdraft-bg: #fff0ec; }
+
+.custom-target { display: grid; gap: 8px; padding-top: 18px; }
+
+/* Event colors are shared by section markers, the legend, and labeled transactions. */
+.event-income { --event-color: var(--income); --event-background: var(--income-bg); }
+.event-bill { --event-color: var(--bill); --event-background: var(--bill-bg); }
+.event-purchase { --event-color: var(--purchase); --event-background: var(--purchase-bg); }
+.event-savings { --event-color: #1b747c; --event-background: #edf7f8; }
+.event-overdraft { --event-color: var(--danger); --event-background: var(--overdraft-bg); }
+.section-number[class*="event-"], .bill-icon[class*="event-"] { color: var(--event-color); background: var(--event-background); }
+.event-badge { display: inline-block; color: var(--event-color); background: var(--event-background); border-radius: 4px; padding: 3px 6px; font-size: 10px; font-weight: 500; line-height: 1.35; }
+.event-legend { display: flex; flex-wrap: wrap; gap: 10px 16px; list-style: none; padding: 15px 25px 0; margin: 0; }
+.event-legend li { display: flex; align-items: center; gap: 6px; color: var(--event-color); font-size: 11px; }
+.event-dot { display: inline-block; width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: var(--event-color); }
+.transaction-list { display: grid; gap: 7px; }
+.transaction-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 8px 10px; border-left: 3px solid var(--event-color); background: var(--event-background); border-radius: 5px; }
+.transaction-name { min-width: 0; overflow-wrap: anywhere; }
+.transaction-name strong { display: block; font-weight: 500; line-height: 1.5; color: var(--foreground); }
+.transaction-name .event-badge { padding: 2px 0 0; font-size: 9px; }
+.transaction-amount { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--event-color); }
+.forecast-table { table-layout: fixed; }
+.forecast-table td:first-child { min-width: 0; }
+.overdraft-day { background: #fffcfa; }
+.overdraft-day .balance-cell > .event-badge {
+  color: var(--danger);
+  background: #ffe4dc;
+  white-space: normal;
+  max-width: 105px;
+  margin-left: auto;
+}
+
+@media (max-width: 560px) {
+  .range-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .event-legend { padding-left: 18px; padding-right: 18px; gap: 10px 12px; }
+  .event-legend li { font-size: 10px; }
+  .forecast-table th { font-size: 8px; letter-spacing: .2px; padding: 12px 7px; }
+  .forecast-table td { padding: 15px 8px; }
+  .transaction-item { padding: 7px; gap: 5px; }
+  .transaction-name strong, .transaction-amount { font-size: 11px; }
+  .balance-cell strong { font-size: 11px; }
+}
